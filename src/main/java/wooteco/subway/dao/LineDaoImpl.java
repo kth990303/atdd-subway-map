@@ -48,7 +48,7 @@ public class LineDaoImpl implements LineDao {
     @Override
     public void updateById(Long id, String name, String color) {
         Line line = findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당하는 노선이 존재하지 않습니다."));
+                .orElseThrow(() -> new IllegalArgumentException(id + "번에 해당하는 노선이 존재하지 않습니다."));
         line.setName(name);
         line.setColor(color);
     }
@@ -57,7 +57,7 @@ public class LineDaoImpl implements LineDao {
     public void deleteById(Long id) {
         boolean result = lines.removeIf(line -> line.getId() == id);
         if (!result) {
-            throw new IllegalArgumentException("해당하는 노선이 존재하지 않습니다.");
+            throw new IllegalArgumentException(id + "번에 해당하는 노선이 존재하지 않습니다.");
         }
     }
 

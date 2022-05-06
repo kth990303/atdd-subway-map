@@ -58,6 +58,6 @@ public class LineService {
 
     private Line checkExistLineById(Long id) {
         return lineDao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당하는 노선이 존재하지 않습니다."));
+                .orElseThrow(() -> new IllegalArgumentException(id + "번에 해당하는 노선이 존재하지 않습니다."));
     }
 }

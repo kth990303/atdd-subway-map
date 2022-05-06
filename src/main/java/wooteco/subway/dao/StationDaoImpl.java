@@ -10,9 +10,8 @@ import java.util.NoSuchElementException;
 
 public class StationDaoImpl implements StationDao {
     private static final StationDaoImpl stationDao = new StationDaoImpl();
-
-    private static Long seq = 0L;
     private static final List<Station> stations = new ArrayList<>();
+    private static Long seq = 0L;
 
     public static StationDaoImpl getInstance() {
         return stationDao;
@@ -42,7 +41,7 @@ public class StationDaoImpl implements StationDao {
     public void deleteById(Long id) {
         boolean result = stations.removeIf(station -> station.getId() == id);
         if (!result) {
-            throw new NoSuchElementException("해당하는 역이 존재하지 않습니다.");
+            throw new NoSuchElementException(id + "번에 해당하는 역이 존재하지 않습니다.");
         }
     }
 
